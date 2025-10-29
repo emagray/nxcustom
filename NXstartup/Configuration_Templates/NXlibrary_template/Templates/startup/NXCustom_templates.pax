@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Palette xmlns="http://www.ugsolutions.com/Schemas/2001/UGPalettes" schemaVersion="1.0">
+
+  <Presentation name="Sample NXCustom Templates" bitmap="sheet_and_block.bmp" FileNewTab="NXCustom" application="All" UsesMasterModel="No"/>
+
+<PaletteEntry id="d1">
+    <References/>
+    <Presentation name="MyTemplates00" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="model_template.jpg"/>
+    </Presentation>
+    <ObjectData class="ModelTemplate">
+        <Filename>MyTemplates-model-plain-1-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d2">
+    <References/>
+    <Presentation name="MyTemplates01" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="model_template.jpg"/>
+    </Presentation>
+    <ObjectData class="ModelTemplate">
+        <Filename>MyTemplates-model-plain-1-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d7">
+    <References/>
+    <Presentation name="MyTemplates02" description="NX Example, starts add component">
+        <PreviewImage type="UGPart" location="assembly_template.jpg"/>
+    </Presentation>
+    <ObjectData class="AssemblyTemplate">
+        <Filename>assembly-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d8">
+    <References/>
+    <Presentation name="MyTemplates03" description="NX Example, starts add component">
+        <PreviewImage type="UGPart" location="assembly_template.jpg"/>
+    </Presentation>
+    <ObjectData class="AssemblyTemplate">
+        <Filename>assembly-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+  
+  <PaletteEntry id="d9">
+    <References/>
+    <Presentation name="MyTemplates04" description="NX Example, perspective and grid">
+        <PreviewImage type="UGPart" location="studio_template.jpg"/>
+    </Presentation>
+    <ObjectData class="StudioTemplate">
+        <Filename>MyTemplates-shape-studio-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+  
+  <PaletteEntry id="d10">
+    <References/>
+    <Presentation name="MyTemplates05" description="NX Example, perspective and grid">
+        <PreviewImage type="UGPart" location="studio_template.jpg"/>
+    </Presentation>
+    <ObjectData class="StudioTemplate">
+        <Filename>MyTemplates-shape-studio-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry> 
+
+    <PaletteEntry id="d11">
+    <References/>
+    <Presentation name="MyTemplates06" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="sheet_metal_template.jpg"/>
+    </Presentation>
+    <ObjectData class="NXSheetMetalTemplate">
+        <Filename>sheet-metal-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d12">
+    <References/>
+    <Presentation name="MyTemplates07" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="sheet_metal_template.jpg"/>
+    </Presentation>
+    <ObjectData class="NXSheetMetalTemplate">
+        <Filename>sheet-metal-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+     <PaletteEntry id="d13">
+    <References/>
+    <Presentation name="MyTemplates08" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="aero_metal_template.jpg"/>
+    </Presentation>
+    <ObjectData class="AeroSheetMetalTemplate">
+        <Filename>aero-sheet-metal-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d14">
+    <References/>
+    <Presentation name="MyTemplates09" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="aero_metal_template.jpg"/>
+    </Presentation>
+    <ObjectData class="AeroSheetMetalTemplate">
+        <Filename>aero-sheet-metal-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d15">
+    <References/>
+    <Presentation name="MyTemplates10" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="routing_logical_template.jpg"/>
+    </Presentation>
+    <ObjectData class="RoutingLogicalTemplate">
+        <Filename>routing-logical-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d16">
+    <References/>
+    <Presentation name="MyTemplates11" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="routing_logical_template.jpg"/>
+    </Presentation>
+    <ObjectData class="RoutingLogicalTemplate">
+        <Filename>routing-logical-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d17">
+    <References/>
+    <Presentation name="MyTemplates12" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="routing_mech_template.jpg"/>
+    </Presentation>
+    <ObjectData class="RoutingMechanicalTemplate">
+        <Filename>routing-mech-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d18">
+    <References/>
+    <Presentation name="MyTemplates13" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="routing_mech_template.jpg"/>
+    </Presentation>
+    <ObjectData class="RoutingMechanicalTemplate">
+        <Filename>routing-mech-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+  
+  <PaletteEntry id="d19">
+    <References/>
+    <Presentation name="MyTemplates14" description="NX Example with datum CSYS">
+         <PreviewImage type="UGPart" location="routing_elec_template.jpg"/>
+    </Presentation>
+    <ObjectData class="RoutingElectricalTemplate">
+        <Filename>routing-elec-inch-template.prt</Filename>
+	<Units>English</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+  <PaletteEntry id="d20">
+    <References/>
+    <Presentation name="MyTemplates15" description="NX Example with datum CSYS">
+        <PreviewImage type="UGPart" location="routing_elec_template.jpg"/>
+    </Presentation>
+    <ObjectData class="RoutingElectricalTemplate">
+        <Filename>routing-elec-mm-template.prt</Filename>
+	<Units>Metric</Units>
+    </ObjectData>
+  </PaletteEntry>
+
+</Palette>

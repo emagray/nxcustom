@@ -1,0 +1,35 @@
+#
+#     Copyright 1991 - 2019 Siemens Product Lifecycle Management Software Inc.
+#                                   All Rights Reserved.
+#
+##############################################################################
+#
+#
+# This file should be used to override any standard NX environment variables.
+# The values defined here will take precedence over the NX values.
+# This file is specifically for common settings that are version independent.
+# Anything set here wil take precedence over the settings in the version specific NX_env.dat file.
+#
+# Override any variables here.
+# ******** NX Environment Variable Customization File ********
+
+# Last Modified: 31Jul2020
+
+# Modeling Standards Directory (Holes and Threads)
+# UGII_SCREW_CLEARANCE_HOLE_STANDARD_DIR=${NXCUSTOM_COMMON_LIB}\ModelingStandards
+# UGII_THREADED_HOLE_STANDARD_DIR=${NXCUSTOM_COMMON_LIB}\ModelingStandards
+
+# Thread Libraries, when required, copy them from ...\UGII folder to
+# ...\NXcustom\NXcommonlibrary\ModelingStandards and uncomment de lines below change the content.
+# UGII_ENGLISH_THREADS=${NXCUSTOM_COMMON_LIB}\ModelingStandards\thd_english.dat
+# UGII_METRIC_THREADS=${NXCUSTOM_COMMON_LIB}\ModelingStandards\thd_metric.dat
+
+# Printers
+# UGII_SDI_SERVER_CFG_DIR=C:\Temp\NXprinting
+
+# Defaults for Export CGM and Export PDF
+UGII_CGM_DEFAULTS=${NXCUSTOM_COMMON_LIB}\NX_cgmdef.txt
+
+# Default role
+UGII_DEFAULT_ROLE=advanced.mtx
+

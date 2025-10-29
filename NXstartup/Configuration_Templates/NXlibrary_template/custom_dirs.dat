@@ -1,0 +1,38 @@
+#  custom_dirs.dat: Directories to search for Unigraphics customizations
+#
+#  Copyright (c) 1999 Unigraphics Solutions, Incorporated
+#                  Unpublished - All rights reserved
+#
+##############################################################################
+#
+#
+#  This file is used to specify directories which will be searched for
+#  menu files, toolbar files, dialog files or UDO libraries.  The directories
+#  added here may or may not exist, to allow the same file to be used at
+#  multiple sites.  When Unigraphics starts up, it will check each entry, if
+#  the directory does not exist, the line will be discarded as if it was a
+#  comment.  Comments are allowed, and must start with a # in column one.
+#
+#  Directories must be listed one per line, with nothing else on the line.  The
+#  directory may include environment variables, by specifying $variable.  If
+#  a $ is needed in a directory, it may be specified using $$, e.g.
+#  /users/my$$ would be the directory /users/my$.  The file may be made to
+#  work on UNX or WNT, on WNT any / characters will be replaced by \.
+#
+#  A #include construct is supported to include other files, to make it easier
+#  for individual users to customize their runtime environment.  Finally the
+#  location of this file is controlled by the environment variable
+#  $UGII_CUSTOM_DIRECTORY_FILE which by default points to
+#  $UGII_DEFAULT_MENU_DIR/custom_dirs.dat
+#
+#  Customers should feel free to edit this file.
+#
+####################################################################
+#
+# Customer modifications can follow on here
+#
+
+#include ${NXCUSTOM_PLUGINS}\plugins_custom_dirs.dat
+${UGII_USER_PROFILE_DIR}
+${NXCUSTOM_DIR}
+${NXCUSTOM_LIB}\Templates

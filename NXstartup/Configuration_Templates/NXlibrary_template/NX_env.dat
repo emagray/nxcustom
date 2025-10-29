@@ -1,0 +1,182 @@
+#
+#     Copyright 1991 - 2019 Siemens Product Lifecycle Management Software Inc.
+#                                   All Rights Reserved.
+#
+##############################################################################
+#
+#
+# This file should be used to override any standard NX environment variables.
+# The values defined here will take precedence over the NX values, as long as
+# they are defined before the #include of ugii_env_ug.dat. This file will not
+# be overwritten by an MR installation.
+#
+# Override any variables here.
+# ******** NX Environment Variable Customization File ********
+
+# Last Modified: 2024.01.03
+
+
+
+# Variable that defines the path where the NXcustom mirror folder of the UGII_BASE_DIR will reside.
+# This is for future use and currently has no effect.
+# NXCUSTOM_UGII_BASE_DIR=${NXCUSTOM_LIB}\NX_BASE_DIR
+
+# Set NXcustom Plugins location
+NXCUSTOM_PLUGINS=${NXCUSTOM_LIB}\Plugins
+
+
+
+# Customer Default Files Location (UGII_USER_PROFILE_DIR defined in the NXstart.bat file)
+UGII_LOCAL_USER_DEFAULTS=${UGII_USER_PROFILE_DIR}\nx_user.dpv
+
+# Defines the location of the file where the "Early Access Features" are stored. 
+UGII_LOCAL_USER_TOGGLE_DEFAULTS=${UGII_USER_PROFILE_DIR}\feature_toggle_user.fcg
+
+# Drafting Standards
+UGII_LOCAL_USER_DRAFTING_STANDARD_DIR=${UGII_USER_PROFILE_DIR}\drafting_standards
+
+
+# Printers
+# UGII_SDI_SERVER_CFG_DIR=C:\Temp\NXprinting
+
+# Template Files Directory
+# UGII_TEMPLATE_DIR=${NXCUSTOM_LIB}\Templates
+
+# Design Tools Directory - Checkmate, Requirement, Issue Tracking, Quickcheck
+# NXDESIGNTOOLS_DIR=${NXCUSTOM_LIB}\DesignTools
+
+# Teamcenter Visualization Environment Variables
+UGII_PV_TESS_CONFIG_FILE=${NXCUSTOM_LIB}\NX_tess.config
+UGII_PV_TRANS_MODEL_ANN=YES
+
+# User Defined Feature Environment Variables
+# UGII_UDF_DEFINITION_FILE is a file that determines your hierarchical library structure.
+#    A sample definition file is located at $UGII_BASE_DIR\ugii\udf\dbc_udf_ascii.def and
+#    we recommend its use.
+# UGII_UDF_DATABASE_FILE defines the location of your user defined features.
+#    A sample database file is located at $UGII_BASE_DIR\ugii\udf_database.txt
+# UGII_UDF_LIBRARY_DIR, used in sample UGII_UDF_DEFINITION_FILE, defines the full path of your user
+#    defined features directory so that a relative path can be defined in the database file for cgm
+#    and part locations. It has an old version UDF_LIBRARY_DIR.
+# UGII_UDF_LIBRARY_DIR=${NXCUSTOM_LIB}\udf\resource
+# UGII_UDF_DATABASE_FILE=${NXCUSTOM_LIB}\udf\udf_database.txt
+# UGII_UDF_DEFINITION_FILE=${NXCUSTOM_LIB}\udf\dbc_udf_ascii.def
+# UDF_LIBRARY_DIR=
+
+# Shape Studio Environment Variables
+#  UGII_USER_SHOWROOM_DATA_DIR defines the directory where all the support
+#  files for the showroonm environments created by user reside.
+#  These files are used for both UGPHOTO and Studio display.
+#  It is strongly recommented for user to define this environment variable
+#  and use this diretory as a central storage for all User Showroom Environment files.
+#  UG searches in this directory to resolve all part references to environment files.
+#  If not defined, directory UGII_TMP_DIR\user_showroom_data_dir is used to
+#  store all the user showroom environment files.
+#  The directory needs to have full write permission.
+# UGII_USER_SHOWROOM_DATA_DIR=${NXCUSTOM_LIB}\Showroom\
+
+# Visual Reporting Main Folder
+# NXVISUALREPORTING_DIR=${NXCUSTOM_LIB}\VisualReporting
+
+# Customized Visual Reporting User Folder (to use, create the VisualReporting\definitions folder)
+# NXVISUALREPORTING_USER_DIR=${UGII_USER_PROFILE_DIR}\VisualReporting\definitions\english
+
+# CAM Resource Files
+# When nothing is changed below NXcustom will automatically detect all the CAMresource sub folders and include those automatically
+# When you want to copy the entire resource folder (Not Advised) : un-comment the line below and copy the entire Mach\Resource to CAMresource
+# UGII_CAM_RESOURCE_DIR=${NXCUSTOM_LIB}\CAMresource\
+
+# !!!!!!!!!!!! DO NOT change the 4 lines below !!!!!!!!!!!!!!!
+#if ${UGII_CAM_RESOURCE_DIR} != ""
+#else
+#include ${NXCUSTOM_LIB}\NX_CAM_auto_env.dat
+#endif
+	
+# UGII_CAM_CONFIG=${UGII_CAM_RESOURCE_DIR}\configuration\cam_general.dat
+
+# CAM Output folder
+# UGII_CAM_SETUP_ROOT_DIR=${HOMEDRIVE}${HOMEPATH}
+
+# Display spinning tool
+# UGII_ENABLE_CUTTER_SPIN=1
+
+# CMM Resource Files (thanks to "Joe Gesualdi")
+# When nothing is changed below NXcustom will automatically detect all the CCMresource sub folders and include those automatically
+# When you want to copy the entire resource folder (Not Advised) : un-comment the line below and copy the entire CMM_INSPECTION\resource to CCMresource
+# UGII_INSPECTION_RESOURCE_DIR=${NXCUSTOM_LIB}\CMMresource\
+
+# !!!!!!!!!!!! DO NOT change the 4 lines below !!!!!!!!!!!!!!!
+#if ${UGII_INSPECTION_RESOURCE_DIR} != ""
+#else
+#include ${NXCUSTOM_LIB}\NX_CMM_auto_env.dat
+#endif
+
+# Import JT as facetted for CAM
+# UGII_DONT_CREATE_JT_FACETS_FOR_INTEROP=1
+
+# Drafting Tables Environment Variables
+UGII_DRAFTING_HOLE_TABLE=1
+# UGII_TABLE_TEMPLATES=${NXCUSTOM_LIB}\Tables
+
+# Drafting Annotation Template Files
+# UGII_ANNOTATION_TEMPLATE_DIR=${NXCUSTOM_LIB}\AnnotationTemplates\
+
+# Wizard Environment Variables
+#
+# MOLDWIZARD_LIB_DIR is the directory that the kit of the option product, moldwizard, is
+# installed into.  This defaults to UGII_BASE_DIR\moldwizard.
+# MOLDWIZARD_DIR=${NXCUSTOM_LIB}\MoldWizard
+#
+# PDIEWIZARD_DIR is the directory where the template and database of the option product, pdiewizard, will
+# be installed.  By default this will be $UGII_BASE_DIR\pdiewizard
+#
+# PDIEWIZARD_DIR=${NXCUSTOM_LIB}\Pdiewizard
+
+# Default bitmap path definition.
+# Change below if you want to add more folders separated by a semicolon ";"
+UGII_BITMAP_PATH=${NXCUSTOM_LIB}\Bitmaps;${UGII_CAM_TEMPLATE_PART_DIR}bitmaps
+
+# PCB Exchange folder when customized
+# MAYA_PCB_DIR=${NXCUSTOM_LIB}\PCBexchange
+
+# *** I-deas Interoperability (Legacy) ***
+# UGII_INOP_SERVER_HOST=host_name
+# UGII_IDEAS2UG_AUTO_UPDATE_CHECK=1
+# UGII_IDEAS2UG_UPDATE_FROM_LATEST=1
+
+#  UGII_REFL_IMAGE_DIR defines the directory in which the image files
+#  for Face Analysis Reflections reside.  This environment variable
+#  must be defined, or else an error will occur when UG or user-defined
+#  reflection images are requested.
+# UGII_REFL_IMAGE_DIR=
+
+# UGII_TEXTURE_LIB defines a directory where the user can put custom image files used by 
+# NX high end visualization such as materials, decals and background. To allow parts using 
+# customized materials with images to be shared between NX installations, the user 
+# specified images should be placed in each installation's UGII_TEXTURE_LIB directory 
+# and specified using a relative path in the Studio Material Editor or Decal Sticker or
+# Scene Editor. 
+# UGII_TEXTURE_LIB=${UGII_BASE_DIR}\ugphoto\textures\
+
+# UGII_TEXTURE_TIFF_IMAGE_DIR defines the directory in which the tif image
+# files for studio/ugphoto textures reside.  This environment variable
+# must be defined, or else an error will occur when textures
+# are requested during studio rendering.
+# UGII_TEXTURE_TIFF_IMAGE_DIR=
+
+# Location of Routing Library files 
+# Set to UGII_BASE_DIR or NXCUSTOM_LIB\Routing
+# ROUTING_APP_DIR=${NXCUSTOM_LIB}\Routing
+
+# Do not edit anything below this line!!!!!!!!!!!!!
+# Edits below might cause this file not to work properly.
+
+#if FILE ${NXCUSTOM_PLUGINS}\plugins_env.dat
+#include ${NXCUSTOM_PLUGINS}\plugins_env.dat
+#endif
+#if FILE ${NXCUSTOM_COMMON_LIB}\NX_common_env.dat
+#include ${NXCUSTOM_COMMON_LIB}\NX_common_env.dat
+#endif
+#if FILE ${UGII_USER_PROFILE_DIR}\NX_env.dat
+#include ${UGII_USER_PROFILE_DIR}\NX_env.dat
+#endif

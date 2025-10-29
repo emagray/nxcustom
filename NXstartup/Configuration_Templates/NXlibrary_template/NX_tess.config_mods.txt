@@ -1,0 +1,7 @@
+These are the changes that were made to the tessUG.config file in this folder.
+Modified 24Jul2020
+
+	structureOption = "MIMIC"
+	mergeSheets = true
+	getAttributes = true
+	ConsoleReporting = "NONE"		; Changed to prevent issues with the dispatcher in NX12

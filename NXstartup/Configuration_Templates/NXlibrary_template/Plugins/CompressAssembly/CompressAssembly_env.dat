@@ -1,0 +1,6 @@
+﻿# To disable pre-selection of components, uncomment the following line:
+# NXPLUGIN_COMPASM_PRESELECT=FALSE
+
+# To set a default output directory, uncomment the following
+# line and specify the path to your chosen directory:
+# NXPLUGIN_COMPASM_OUTPUT_DIR=${USERPROFILE}\Desktop

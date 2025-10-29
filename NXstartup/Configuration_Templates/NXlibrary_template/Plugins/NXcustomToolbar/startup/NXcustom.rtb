@@ -1,0 +1,50 @@
+!
+!  NXcustom Ribbon
+!
+! 
+!
+
+TITLE   NXcustom
+VERSION 170
+
+BEGIN_GALLERY NXcustom_Utilities
+GALLERY_STYLE SMALL_IMAGE_AND_TEXT
+LABEL NXcustom Utilities
+  
+	BUTTON NXCUSTOM_CONF
+	LABEL Edit NXstart.conf File
+	MESSAGE Edit the NX environment configuration file
+  
+	BUTTON NXCUSTOM_ENV
+	LABEL Edit NX_env.dat File
+	MESSAGE Edit the NX environment variables file
+	
+	BUTTON NXCUSTOM_CAM_ENV
+	LABEL Edit NX_CAM_auto_env.dat File
+	MESSAGE Edit the NX CAM automatic environment variables file
+	
+	BUTTON NXCUSTOM_CMM_ENV
+	LABEL Edit NX_CMM_auto_env.dat File
+	MESSAGE Edit the NX CMM automatic environment variables file
+	
+	BUTTON NXCUSTOM_PROMPT
+	LABEL NX Command Prompt
+	MESSAGE NX Command Window
+
+END_GALLERY
+
+! BEGIN_GALLERY NXcustom_References
+! GALLERY_STYLE SMALL_IMAGE_AND_TEXT
+! LABEL NXcustom References
+
+	BUTTON NXCUSTOM_ABOUT
+	LABEL About NXcustom
+	BITMAP info_object
+	MESSAGE Displays What's New and Revision History
+	
+	BUTTON NXCUSTOM_HELP
+	LABEL NXcustom Help
+	BITMAP help
+	MESSAGE Displays setup information 
+
+! END_GALLERY

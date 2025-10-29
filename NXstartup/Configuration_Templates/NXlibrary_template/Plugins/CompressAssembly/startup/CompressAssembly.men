@@ -1,0 +1,9 @@
+VERSION 130
+EDIT UG_GATEWAY_MAIN_MENUBAR
+
+AFTER UG_FILE_EXPORT_UDF
+  BUTTON COMPASM_BTTN
+  LABEL &Compress Assembly...
+  MESSAGE Exports components from an assembly into a compressed file.
+  ACTIONS CompressAssembly.dll
+END_OF_AFTER

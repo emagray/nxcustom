@@ -1,0 +1,122 @@
+##################################################################################
+#                                                                                #
+# ============================================================================== #
+# NXcustom automatic setting of environment variables                            #
+# !!!!!!!!!!!!!!! Do not edit unless you know what you are doing !!!!!!!!!!!!!!! #
+# ============================================================================== #
+#                                                                                #
+##################################################################################
+
+### NX CMM INSPECTION ###
+
+# Last Modified: 8Jan2020
+
+# This is the root for INSPECTION specific files
+UGII_INSPECTION_BASE_DIR=${UGII_BASE_DIR}\CMM_INSPECTION\
+
+# This is the root for platform independent resource files. Many other
+# locations are defined based on this location.
+UGII_INSPECTION_RESOURCE_DIR=${UGII_INSPECTION_BASE_DIR}resource\
+
+# This is the NXcustom INSPECTION Resource folder
+NXCUSTOM_UGII_INSPECTION_RESOURCE=${NXCUSTOM_LIB}\CMMresource\
+
+UGII_INSPECTION_FILE_SEARCH_PATH=.\;${UGII_INSPECTION_BASE_DIR};${NXCUSTOM_UGII_INSPECTION_RESOURCE};${UGII_INSPECTION_RESOURCE_DIR}
+
+# This is where default configuration .dat files are located. This is used to
+# build the list of configurations to choose when entering Manufacturing.
+# The custom directory is also searched for configurations.
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}configuration\
+	UGII_INSPECTION_CONFIG_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}configuration\
+#endif
+
+# This is the location of template set .opt files
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}template_set\
+	UGII_INSPECTION_TEMPLATE_SET_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}template_set\
+#endif
+
+# These are the locations of the english and metric template parts
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}template_part\
+	UGII_INSPECTION_TEMPLATE_PART_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}template_part\
+#endif
+
+# If setup libraries or palettes are used, the dbc and ascii database are here.
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}template_dir\
+	UGII_INSPECTION_LIBRARY_TEMPLATE_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}template_dir\
+#endif
+
+# This is where work instruction template, tcl, and def files are located
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}owi\
+	UGII_INSPECTION_WORK_INSTRUCTION_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}owi\
+#endif
+
+# This is where postprocessor .tcl .def and .pui files are located
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}postprocessor\
+	UGII_INSPECTION_POST_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}postprocessor\
+#endif
+
+# This is the location of user defined event .ude files
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}user_def_event\
+	UGII_INSPECTION_USER_DEF_EVENT_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}user_def_event\
+#endif
+
+# This is the location of the tcl and def files for listing a tool path
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}tool_path\
+	UGII_INSPECTION_TOOL_PATH_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}tool_path\
+#endif
+
+# This is the location of tcl files for debugging and the review tool
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}debug\
+	UGII_INSPECTION_DEBUG_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}debug\
+#endif
+
+# This is for data files used by feature based INSPECTION templates
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\
+	UGII_INSPECTION_FEATURE_DATA_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\
+#endif
+
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\english\
+	UGII_INSPECTION_FEATURE_DATA_ENGLISH_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\english\
+#endif
+
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\metric\
+	UGII_INSPECTION_FEATURE_DATA_METRIC_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\metric\
+#endif
+
+# This is for INSPECTION feature images used by MFN
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\images\
+	UGII_INSPECTION_FEATURE_IMAGES_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}feature\images\
+#endif
+
+# This is the location of the general dbc if ug library
+#if FILE ${NXCUSTOM_UGII_INSPECTION_RESOURCE}ug_library\
+	UGII_UG_LIBRARY_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}ug_library\
+#endif
+
+# This location is the NXcustom root for specific library dbc and ascii databases
+NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR=${NXCUSTOM_UGII_INSPECTION_RESOURCE}library\
+
+# These are the locations for the dbc and ascii databases for the cutting tool library
+#if FILE ${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}tool\
+	UGII_INSPECTION_LIBRARY_TOOL_DIR=${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}tool\
+#endif
+
+# These are the locations for the dbc and ascii databases for the device library
+#if FILE ${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}device\
+	UGII_INSPECTION_LIBRARY_DEVICE_DIR=${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}device\
+#endif
+
+# These are the locations for the dbc and ascii databases for the machine tool library
+#if FILE ${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}machine\
+	UGII_INSPECTION_LIBRARY_MACHINE_DIR=${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}machine\
+#endif
+
+# These are the locations for the dbc and ascii databases for the feed and speed library
+#if FILE ${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}feeds_speeds\
+	UGII_INSPECTION_LIBRARY_FEEDS_SPEEDS_DIR=${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}feeds_speeds\
+#endif
+
+#if FILE ${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}udf\
+	UGII_INSPECTION_LIBRARY_UDF_DIR=${NXCUSTOM_UGII_INSPECTION_LIBRARY_DIR}udf\
+#endif
+

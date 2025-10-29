@@ -1,0 +1,66 @@
+VERSION 120
+
+EDIT UG_GATEWAY_MAIN_MENUBAR
+
+BEFORE UG_HELP
+CASCADE_BUTTON NXCUSTOM
+  LABEL NX&custom
+END_OF_BEFORE
+
+MENU NXCUSTOM
+
+CASCADE_BUTTON NXCUSTOM_UTILS        
+  LABEL &Utilities
+
+BUTTON NXCUSTOM_ABOUT
+  LABEL &About NXcustom
+  MESSAGE Displays what's new and revision history
+  ACTIONS "start /b \"Title\" \"%NXCUSTOM_LIB%\NXcustom about.pdf\" "
+
+BUTTON NXCUSTOM_HELP
+  LABEL NXcustom &Help
+  MESSAGE Displays setup information
+  ACTIONS "start /b \"Title\" \"%NXCUSTOM_DIR%\NXcustom README.pdf\" "
+
+END_OF_MENU
+
+AFTER UG_FILE_CLOSE
+ BUTTON UG_FILE_REOPEN_ALL
+ LABEL Close/Reopen Modified Parts
+ ACTIONS STANDARD
+END_OF_AFTER
+
+AFTER UG_TOOLS_CUSTOMIZE
+    BUTTON MY_CALC
+    LABEL Calculator
+    ACTIONS "start /b calc.exe"
+END_OF_AFTER
+
+MENU NXCUSTOM_UTILS
+
+BUTTON NXCUSTOM_CONF
+  LABEL Edit NXstart.&conf File
+  MESSAGE Edit the NXstart configuration file
+ ACTIONS "start /b \"Title\" notepad \"%NXCUSTOM_DIR%\NXstartup\NXstart.conf\" "
+
+BUTTON NXCUSTOM_ENV
+  LABEL Edit NX &Env.dat File
+  MESSAGE Edit the NX environment variables file
+ ACTIONS "start /b \"Title\" notepad \"%NXCUSTOM_LIB%\NX_env.dat\" "
+
+BUTTON NXCUSTOM_CAM_ENV
+	LABEL Edit NX_CAM_auto_env.dat File
+	MESSAGE Edit the NX CAM automatic environment variables File
+ ACTIONS "start /b \"Title\" notepad \"%NXCUSTOM_LIB%\NX_CAM_auto_env.dat\" "
+
+BUTTON NXCUSTOM_CMM_ENV
+	LABEL Edit NX_CMM_auto_env.dat File
+	MESSAGE Edit the NX CMM automatic environment variables File
+ ACTIONS "start /b \"Title\" notepad \"%NXCUSTOM_LIB%\NX_CMM_auto_env.dat\" "
+ 
+BUTTON NXCUSTOM_PROMPT
+  LABEL NX &Command Prompt
+  MESSAGE NX Command
+  ACTIONS " %comspec% /c start \"NX%NXCUSTOM_APPLICATION_VERSION% Command Prompt\" %comspec% /X /T:70 "
+
+END_OF_MENU
