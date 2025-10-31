@@ -1,15 +1,13 @@
 @echo off
 
 cd /d %~dp0
-call ..\NXstart.bat :set_locations
-cd /d %NXCUSTOM_DIR%
+cd /d ..\..
+set NXCUSTOM_DIR=%cd%
 
-:: Remove existing download
 if exist download.zip del download.zip
-if exist download rmdir /s /q download
+if exist nxcustom-main rmdir /s /q nxcustom-main
 
-:: Download zip
-curl -L -o download.zip https://github.com/emagray/nxcustom/archive/refs/heads/main.zip
+curl -L -o download.zip https://github.com/emagray/nxcustom/archive/refs/heads/main.zip 2>nul
 if errorlevel 1 (
 	color 4f
 	echo Failed to download!
@@ -17,8 +15,7 @@ if errorlevel 1 (
 	exit /b
 )
 
-:: Extract zip
-tar -xf download.zip
+tar -xf download.zip 2>nul
 if errorlevel 1 (
 	color 4f
 	echo Failed to extract download!
@@ -27,16 +24,15 @@ if errorlevel 1 (
 	exit /b
 )
 
-:: Rename previous NXstartup
-if exist "%NXCUSTOM_START_DIR%" (
-	move "%NXCUSTOM_START_DIR%" "%NXCUSTOM_START_DIR%_%date:~-4%-%date:~-10,-8%-%date:~-7,-5%_%time:~0,2%-%time:~3,2%-%time:~6,2%" >nul
-)
+if exist "%NXCUSTOM_DIR%\NXstartup_latest" (rmdir /s /q "%NXCUSTOM_DIR%\NXstartup_latest")
+ren ".\nxcustom-main\NXstartup" "NXstartup_latest"
+move ".\nxcustom-main\NXstartup_latest" "%NXCUSTOM_DIR%" >nul
+if exist download.zip (del download.zip)
+if exist nxcustom-main (rmdir /s /q nxcustom-main)
 
-:: Move downloaded NXstartup
-move "download\NXcustom\NXstartup" "%NXCUSTOM_START_DIR%" >nul
-
-:: Delete download folder and zip
-if exist download.zip del download.zip
-if exist download rmdir /s /q download
-
+echo The latest NXcustom files have been downloaded to NXstartup_latest!
+echo:
+echo To complete the NXcustom update, backup (or rename) your NXstartup folder,
+echo then rename the NXstartup_latest folder to NXstartup.
+echo:
 pause

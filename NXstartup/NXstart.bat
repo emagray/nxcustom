@@ -29,9 +29,9 @@ if "%__a%" == ":" (
 set __a=
 
 :: Preparation
-call :set_locations
 call :set_constants
 call :set_default_values
+call :set_locations
 call :parse_and_eval_conf START
 call :clear_log
 call :validate_NXCUSTOM_USER_OVERRIDE_ARGS
@@ -627,7 +627,21 @@ set NXCUSTOM_START_ARGS_ESCAPED=
 exit /b
 
 :set_locations
-set NXCUSTOM_START_SCRIPT=%0
+set NXCUSTOM_START_SCRIPT=%~dpnx0
+if "%NXCUSTOM_START_SCRIPT:~0,2%" == "\\" (
+	set NXCUSTOM_REPORT_VARS=TRUE
+	call :report "NXcustom is being used from a UNC path."
+	call :report new_line
+	call :report "If you can access this location from a mapped drive,"
+	call :report "please do so."
+	call :report new_line
+	call :report "If you currently have no way to access this location"
+	call :report "from a mapped drive, create a mapped drive."
+	call :report "Ideally, this would be done via group policy within"
+	call :report "the Active Directory domain to ensure consistent paths"
+	call :report "for all users of this NXcustom environment."
+	call :red_exit
+)
 cd /d %~dp0
 set NXCUSTOM_START_DIR=%cd%
 for %%a in ("%NXCUSTOM_START_DIR%") do (

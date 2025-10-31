@@ -10,8 +10,8 @@ net session >nul 2>&1 || (
 
 cd /d %~dp0
 call ..\NXstart.bat :set_locations
-call NXstart.bat :set_nx_paths
-call NXstart.bat :set_valid_application_versions
+call %NXCUSTOM_START_SCRIPT% :set_nx_paths
+call %NXCUSTOM_START_SCRIPT% :set_valid_application_versions
 
 set NXCUSTOM_APPLICATION_VERSION=
 if "%1" neq "" (
@@ -30,8 +30,8 @@ if not defined NXCUSTOM_APPLICATION_VERSION (
 	set /p NXCUSTOM_APPLICATION_VERSION=Which version would you like to restore to?: 
 )
 
-call NXstart.bat :get_highest_dot_from_compat %NXCUSTOM_APPLICATION_VERSION% NXCUSTOM_NX_DOT_VERSION
-call NXstart.bat :set_UGII_BASE_DIR
+call %NXCUSTOM_START_SCRIPT% :get_highest_dot_from_compat %NXCUSTOM_APPLICATION_VERSION% NXCUSTOM_NX_DOT_VERSION
+call %NXCUSTOM_START_SCRIPT% :set_UGII_BASE_DIR
 
 reg add "HKCR\NXPartFile\shell\open\command" /d "\"%UGII_BASE_DIR%\NXBIN\ugs_router.exe\" -ug -use_file_dir \"%%1\"" /f
 reg add "HKLM\SOFTWARE\Classes\NXPartFile\shell\open\command" /d "\"%UGII_BASE_DIR%\NXBIN\ugs_router.exe\" -ug -use_file_dir \"%%1\"" /f
