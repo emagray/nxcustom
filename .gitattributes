@@ -1,3 +1,0 @@
-*.prt binary
-* text=auto
-*.bat text eol=crlf
