@@ -246,9 +246,6 @@ if "%NXCUSTOM_START_FROM_AW_OR_RAC%" == "TRUE" (
 	set NXCUSTOM_TEAMCENTER_ENV=
 ) else if /i "%NXCUSTOM_TEAMCENTER_ACTIVE%" == "TRUE" (
 	call :parse_and_eval_conf TC
-	if not defined FMS_HOME (
-		set FMS_HOME=%UGII_BASE_DIR%\UGMANAGER\tccs
-	)
 	call :check_tcin_vars_set
 )
 
