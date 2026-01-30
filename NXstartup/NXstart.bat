@@ -1456,7 +1456,7 @@ for %%a in (%NXCUSTOM_VALID_PACKAGE_TITLE%) do (
 			if %NXCUSTOM_APPLICATION_VERSION% lss 2506 (
 				set __c=!__c:PRODUCT_NAME=NX!
 			) else (
-				set __c=!__c:PRODUCT_NAME=Designcenter!			
+				set __c=!__c:PRODUCT_NAME=Designcenter!
 			)
 			set NXCUSTOM_PACKAGE_TITLE=!__c!
 		)
