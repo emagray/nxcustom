@@ -415,8 +415,14 @@ if exist "%NXCUSTOM_START_DIR%\NXstart_customer.bat" (
 
 :: Passed args replace characters
 if defined NXCUSTOM_PASSED_ARGUMENTS (
-	set NXCUSTOM_PASSED_ARGUMENTS=%NXCUSTOM_PASSED_ARGUMENTS:#ASCII40=(%
-	set NXCUSTOM_PASSED_ARGUMENTS=%NXCUSTOM_PASSED_ARGUMENTS:#ASCII41=)%
+	setlocal EnableDelayedExpansion
+	set "NXCUSTOM_PASSED_ARGUMENTS=!NXCUSTOM_PASSED_ARGUMENTS:#ASCII40=(!"
+	set "NXCUSTOM_PASSED_ARGUMENTS=!NXCUSTOM_PASSED_ARGUMENTS:#ASCII41=)!"
+	set "NXCUSTOM_PASSED_ARGUMENTS=!NXCUSTOM_PASSED_ARGUMENTS:#ASCII124=|!"
+	for /f "tokens=* delims=" %%a in ("!NXCUSTOM_PASSED_ARGUMENTS!") do (
+		endlocal
+		set "NXCUSTOM_PASSED_ARGUMENTS=%%a"
+	)
 )
 
 :: Clear screen
@@ -534,8 +540,39 @@ if /i "%NXCUSTOM_APPLICATION_NAME%" neq "NONE" if "%NXCUSTOM_REPORT_VARS%" == "T
 
 exit /b 0
 
+:split_nxrac_args
+setlocal EnableDelayedExpansion
+set "__args=!NXCUSTOM_ARGS_TO_PARSE!"
+set "__before="
+set "__after="
+set "__found=0"
+if not defined __args goto :end_split_nxrac_args
+if "!__args:~0,7!"=="/nxrac " (
+	set "__after=!__args:~7!"
+	set "__found=1"
+	goto :end_split_nxrac_args
+)
+set "__test=!__args: /nxrac =|!"
+if not "!__test!"=="!__args!" (
+	for /f "tokens=1,* delims=|" %%a in ("!__test!") do (
+		set "__before=%%a"
+		set "__after=%%b"
+	)
+	set "__found=1"
+)
+:end_split_nxrac_args
+if "!__found!"=="1" (
+	endlocal & (
+		set "NXCUSTOM_ARGS_TO_PARSE=%__before%"
+		set "NXCUSTOM_ARGS_FROM_RAC=%__after%"
+	)
+) else (
+	endlocal & set "NXCUSTOM_ARGS_FROM_RAC="
+)
+exit /b
+
 :set_constants
-set NXCUSTOM_SCRIPT_VERSION=2025.10.27
+set NXCUSTOM_SCRIPT_VERSION=2026.04.27
 set NXCUSTOM_VALID_START_ARGUMENTS=/version-/v-NXCUSTOM_APPLICATION_VERSION /application-/a-NXCUSTOM_APPLICATION_NAME /package-/p-NXCUSTOM_PACKAGE_NAME /group-/g-NXCUSTOM_GROUP /units-/u-UGII_ROUTING_KIT_UNITS /sessions-/s-NXCUSTOM_SESSIONS /managed-/m-NXCUSTOM_TEAMCENTER_ACTIVE /workdir-/w-START_DIR /title-/t-NXCUSTOM_TITLE /saltlic-n/a-SALT_LICENSE_SERVER /licserver-/l-SPLM_LICENSE_SERVER /cdlmdlic-n/a-CDLMD_LICENSE_FILE /licbundle-n/a-UGII_LICENSE_BUNDLE /libname-n/a-NXCUSTOM_LIBNAME /nxaw-n/a-NXCUSTOM_NXTCXML_FILE /openfile-n/a-NXCUSTOM_PART_FILE /tcenv-n/a-NXCUSTOM_TEAMCENTER_ENV /passargs-n/a-NXCUSTOM_PASSED_ARGUMENTS
 set NXCUSTOM_VALID_PACKAGE_NAME_NX=NX VIEW NXCAM MECHATRONICS SECAM LAYOUT SIMCENTER3D SIMVIEWER MOTION NX2DEDIT
 set NXCUSTOM_VALID_PACKAGE_NAME_S3D=NX VIEW SIMCENTER3D SIMVIEWER
@@ -808,13 +845,19 @@ if "%NXCUSTOM_ARGS_TO_PARSE%" == "" (goto :end_parse_var_args)
 call :parse_arg
 if "%continue%" == "true" (goto :start_parse_var_args)
 :end_parse_var_args
-set NXCUSTOM_ARGS_TO_PARSE=%*
-if "%NXCUSTOM_ARGS_TO_PARSE:~0,6%" == "/nxrac" (
-	set NXCUSTOM_ARGS_FROM_RAC=%NXCUSTOM_START_ARGS_ESCAPED:~7%
-	set NXCUSTOM_ARGS_TO_PARSE=
-	goto :end_parse_args
-)
+:: Escape " to '' and () to #ASCII40/#ASCII41, then split at /nxrac
 call :set_parse_args %*
+call :split_nxrac_args
+if defined NXCUSTOM_ARGS_FROM_RAC call set "NXCUSTOM_ARGS_FROM_RAC=%%NXCUSTOM_ARGS_FROM_RAC:''="%%"
+if defined NXCUSTOM_ARGS_FROM_RAC (
+	setlocal EnableDelayedExpansion
+	set "NXCUSTOM_ARGS_FROM_RAC=!NXCUSTOM_ARGS_FROM_RAC:#ASCII124=|!"
+	for /f "tokens=* delims=" %%a in ("!NXCUSTOM_ARGS_FROM_RAC!") do (
+		endlocal
+		set "NXCUSTOM_ARGS_FROM_RAC=%%a"
+	)
+)
+if "%NXCUSTOM_ARGS_TO_PARSE%" == "" if defined NXCUSTOM_ARGS_FROM_RAC (goto :end_parse_args)
 if "%NXCUSTOM_ARGS_TO_PARSE%" == "" (goto :end_parse_args)
 if "%NXCUSTOM_ARGS_TO_PARSE%" == "/h" (
 	call :echo_help
@@ -847,6 +890,7 @@ set NXCUSTOM_ARGS_TO_PARSE=%*
 set NXCUSTOM_ARGS_TO_PARSE=!NXCUSTOM_ARGS_TO_PARSE:(=#ASCII40!
 set NXCUSTOM_ARGS_TO_PARSE=!NXCUSTOM_ARGS_TO_PARSE:)=#ASCII41!
 set NXCUSTOM_ARGS_TO_PARSE=!NXCUSTOM_ARGS_TO_PARSE:"=''!
+set NXCUSTOM_ARGS_TO_PARSE=!NXCUSTOM_ARGS_TO_PARSE:^|=#ASCII124!
 if "!__tmp!" == "" (
 	set NXCUSTOM_ARGS_TO_PARSE=
 )
